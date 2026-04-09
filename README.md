@@ -6,7 +6,7 @@ The sink can be run as a Docker container, using a pre-built container or after 
 
 To create a Docker image, run the following command:
 ```bash
-docker build --tag vsds/test-message-sink .
+docker build --tag openldes/test-message-sink .
 ```
 
 You can use a MongoDB as a member store. Please ensure you run a MongoDB instance locally or use an online instance. Configure the Docker container to use that instance or configure and use the [Docker compose file](./docker-compose.yml) that has been provided. Alternatively you can use an in-memory database (simple object store).
@@ -16,7 +16,7 @@ To run the sink Docker image mapped on port 9000 using a MongoDB, you can use:
 docker run -d -p 9000:80 --add-host=host.docker.internal:host-gateway \
 -e MEMBER_TYPE="http://schema.org/Person" -e COLLECTION_NAME="cartoons" \
 -e CONNECTION_URI="mongodb://host.docker.internal:27017" -e DATABASE_NAME="test" \
-vsds/test-message-sink
+openldes/test-message-sink
 ```
 
 Alternatively, with an in-memory database:
@@ -24,7 +24,7 @@ Alternatively, with an in-memory database:
 docker run -d -p 9000:80 --add-host=host.docker.internal:host-gateway \
 -e MEMBER_TYPE="http://schema.org/Person" -e COLLECTION_NAME="cartoons" \
 -e MEMORY=true \
-vsds/test-message-sink
+openldes/test-message-sink
 ```
 
 
@@ -33,7 +33,7 @@ The Docker run command will return a container ID (e.g. `0cc5d65d8108f8e91778a0a
 Alternatively you can run `docker ps` to retrieve the (short version of the) container ID.
  ```
 CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS          PORTS                  NAMES
-0cc5d65d8108   vsds/test-message-sink   "/usr/bin/dumb-init …"   12 seconds ago   Up 11 seconds   0.0.0.0:9000->80/tcp   intelligent_bell
+0cc5d65d8108   openldes/test-message-sink   "/usr/bin/dumb-init …"   12 seconds ago   Up 11 seconds   0.0.0.0:9000->80/tcp   intelligent_bell
  ```
 To stop the container, you need to call the stop command with the (long or short) container ID, e.g. `docker stop 0cc5d65d8108`
 

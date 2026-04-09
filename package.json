@@ -1,5 +1,5 @@
 {
-  "name": "@informatie-vlaanderen/test-message-sink",
+  "name": "@openldes/test-message-sink",
   "version": "1.0.0",
   "description": "Small HTTP server for capturing RDF messages containing LDES members.",
   "main": "./dist/server.js",

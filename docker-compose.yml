@@ -2,7 +2,7 @@ version: '3.3'
 services:
 
   test-message-sink:
-    image: vsds/test-message-sink
+    image: openldes/test-message-sink
     container_name: ${USECASE_NAME:-sink-mongo}_test-message-sink
     build:
       context: .
